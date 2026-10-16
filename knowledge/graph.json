@@ -1,0 +1,16 @@
+[
+  {"subject":"đái tháo đường","relation":"có loại","object":"type 1"},
+  {"subject":"đái tháo đường","relation":"có loại","object":"type 2"},
+  {"subject":"type 1","relation":"liên quan","object":"thiếu insulin"},
+  {"subject":"type 2","relation":"liên quan","object":"đề kháng insulin"},
+  {"subject":"type 2","relation":"có yếu tố nguy cơ","object":"thừa cân"},
+  {"subject":"type 2","relation":"có yếu tố nguy cơ","object":"ít vận động"},
+  {"subject":"type 2","relation":"có yếu tố nguy cơ","object":"tăng huyết áp"},
+  {"subject":"đái tháo đường","relation":"được đánh giá bằng","object":"HbA1c"},
+  {"subject":"đái tháo đường","relation":"được đánh giá bằng","object":"glucose huyết tương"},
+  {"subject":"đái tháo đường","relation":"có thể gây","object":"bệnh tim mạch"},
+  {"subject":"đái tháo đường","relation":"có thể gây","object":"bệnh thận"},
+  {"subject":"đái tháo đường","relation":"có thể gây","object":"tổn thương thần kinh"},
+  {"subject":"thừa cân","relation":"có thể cải thiện bằng","object":"dinh dưỡng hợp lý"},
+  {"subject":"ít vận động","relation":"có thể cải thiện bằng","object":"vận động thể lực"}
+]
