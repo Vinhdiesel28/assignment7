@@ -77,4 +77,17 @@ save("03_diabetes_agent.ipynb", [
     md("## 6. Giới hạn và đạo đức\n\nCorpus chỉ có sáu đoạn nên độ bao phủ thấp; BM25 nhạy với từ khóa; graph được xây thủ công. Hệ thống cần chuyên gia y tế thẩm định trước mọi ứng dụng thực tế. Đầu ra chỉ phục vụ học tập, không thay thế chẩn đoán, kê đơn hoặc điều trị.")
 ])
 
-print("Đã tạo 3 notebook tại", OUT)
+save("04_two_datasets.ipynb", [
+    md("# Assignment 07 - Notebook 04\n## Hai dataset: Diabetes và chứng khoán AAPL\n\nNotebook xác nhận hai bộ dữ liệu được nộp cùng repository và giải thích vai trò của từng bộ trong hệ thống Knowledge/RAG Agent."),
+    md("## 1. Khởi tạo"), code(common),
+    code("import pandas as pd\nfrom IPython.display import display\ndiabetes = pd.read_csv(ROOT/'data/diabetes_dataset.csv')\nstock = pd.read_csv(ROOT/'data/AAPL_2015_2025.csv', parse_dates=['Date'])\nprint('Diabetes:', diabetes.shape)\nprint('AAPL:', stock.shape)"),
+    md("## 2. Dataset Diabetes\n\nMỗi hàng là một quan sát bệnh nhân. Mười lăm cột đầu vào gồm thông tin nhân khẩu, bệnh nền, BMI, HbA1c và glucose; cột `diabetes` là nhãn. MLP từ Assignment 3 được dùng như một công cụ của Agent."),
+    code("display(diabetes.head())\nprint('Phân bố nhãn:')\nprint(diabetes['diabetes'].value_counts())"),
+    md("## 3. Dataset chứng khoán AAPL\n\nMỗi hàng là một phiên giao dịch, gồm OHLC, giá điều chỉnh và khối lượng. Dữ liệu từ 2015 đến 2025, phù hợp tạo cửa sổ thời gian cho RNN hoặc công cụ tóm tắt xu hướng."),
+    code("display(stock.head())\nprint('Khoảng thời gian:', stock['Date'].min().date(), 'đến', stock['Date'].max().date())\nprint(stock[['Open','High','Low','Close','Volume']].describe().round(2))"),
+    md("## 4. Đặc trưng chuỗi thời gian\n\nReturn theo ngày và trung bình động chỉ sử dụng dữ liệu quá khứ. Khi train mô hình phải chia theo thời gian, không xáo trộn ngẫu nhiên để tránh rò rỉ tương lai."),
+    code("stock = stock.sort_values('Date').copy()\nstock['Return'] = stock['Close'].pct_change()\nstock['MA20'] = stock['Close'].rolling(20).mean()\nstock[['Date','Close','Return','MA20']].tail()"),
+    md("## 5. Vai trò trong Agent\n\nDiabetes phục vụ công cụ ước lượng nhãn sức khỏe; AAPL phục vụ công cụ phân tích chuỗi giá. Knowledge Base/RAG cung cấp phần giải thích bằng văn bản và nguồn. Hai dataset tabular được lưu trong `data/`, còn corpus và graph nằm trong `knowledge/`.")
+])
+
+print("Đã tạo 4 notebook tại", OUT)

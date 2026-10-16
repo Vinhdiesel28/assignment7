@@ -100,9 +100,9 @@ Câu trả lời chỉ dùng nội dung truy xuất; nếu không có hit, hệ 
 
 Người dùng đặt câu hỏi về dấu hiệu, yếu tố nguy cơ, xét nghiệm, biến chứng và phòng ngừa. Knowledge Base lấy thông tin giáo dục sức khỏe từ các cơ quan công. Hệ thống không phân loại type bệnh và không đưa chỉ định điều trị.
 
-### 4.2. Dữ liệu
+### 4.2. Hai dataset
 
-Kho tri thức có sáu chunk và mười bốn triple. Các nguồn chính là WHO, CDC và NIDDK. Mỗi chunk ngắn tập trung một chủ đề để điểm truy xuất dễ diễn giải. Dataset `diabetes_dataset.csv` 100.000 dòng từ Assignment 3 là nguồn cho mô hình dự đoán riêng; RAG không dùng nhãn dataset để tạo kiến thức y khoa.
+Bài nộp kèm hai dataset tabular. `diabetes_dataset.csv` có 100.000 dòng và 16 cột, dùng cho công cụ MLP dự đoán nhãn diabetes. `AAPL_2015_2025.csv` có 2.766 phiên và 7 cột OHLCV, dùng minh họa dữ liệu chuỗi thời gian và công cụ phân tích chứng khoán. Ngoài ra, kho tri thức RAG có sáu chunk cùng mười bốn triple từ WHO, CDC và NIDDK; corpus này là dữ liệu bổ trợ, không thay thế hai dataset.
 
 ### 4.3. Mô hình dự đoán và RAG
 

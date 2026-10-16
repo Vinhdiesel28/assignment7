@@ -10,9 +10,19 @@ Bài xây dựng trợ lý hỏi đáp về đái tháo đường theo yêu cầ
 - `notebooks/01_knowledge_graph.ipynb`: entity, relationship, attribute, triple và truy vấn nhiều bước.
 - `notebooks/02_rag_from_scratch.ipynb`: chunking, BM25, retrieval, augmentation, generation.
 - `notebooks/03_diabetes_agent.ipynb`: ghép retrieval, graph và Agent; giải thích giới hạn y khoa.
+- `notebooks/04_two_datasets.ipynb`: đọc và mô tả hai dataset Diabetes và AAPL.
 - `report/A07_CT_vinhnm.934.pdf`: báo cáo nộp.
 - `web/`: Flask UI và API `/api/chat` để deploy Render.
 - `knowledge/`: sáu tài liệu nguồn và Knowledge Graph 14 triple.
+
+## Hai dataset
+
+| Dataset | File | Kích thước | Vai trò |
+|---|---|---:|---|
+| Diabetes | `data/diabetes_dataset.csv` | 100.000 dòng, 16 cột | Dữ liệu bệnh nhân và nhãn diabetes; dùng mô hình MLP từ Assignment 3 |
+| AAPL | `data/AAPL_2015_2025.csv` | 2.766 phiên, 7 cột | Chuỗi giá Apple 2015-2025; dùng minh họa dữ liệu thời gian và công cụ phân tích chứng khoán |
+
+Kho tri thức RAG trong `knowledge/` là dữ liệu bổ trợ cho Agent, không được tính thay cho hai dataset tabular trên.
 
 ## Chạy local
 
